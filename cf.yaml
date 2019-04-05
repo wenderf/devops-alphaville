@@ -7,10 +7,6 @@ Resources:
   API:
     Type: AWS::Serverless::Api
     Properties:
-<<<<<<< HEAD
-      StageName: MyStage
-=======
->>>>>>> origin/step5
       DefinitionBody:
         swagger: 2.0
         info:
@@ -65,18 +61,11 @@ Resources:
                 requestTemplates:
                   application/json: "{\"statusCode\": 200}"
                 type: mock
-<<<<<<< HEAD
-=======
       StageName: LIVE
->>>>>>> origin/step5
 
   geohash:
     Type: AWS::Serverless::Function
     Properties:
-<<<<<<< HEAD
-      Handler: 
-      Runtime: production
-=======
       FunctionName:
         Fn::Join:
          - '-'
@@ -99,4 +88,3 @@ Resources:
 Outputs:
   API:
     Value: !Ref API.Stage
->>>>>>> origin/step5
