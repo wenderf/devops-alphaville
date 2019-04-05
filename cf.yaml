@@ -7,7 +7,10 @@ Resources:
   API:
     Type: AWS::Serverless::Api
     Properties:
+<<<<<<< HEAD
       StageName: MyStage
+=======
+>>>>>>> origin/step5
       DefinitionBody:
         swagger: 2.0
         info:
@@ -62,9 +65,38 @@ Resources:
                 requestTemplates:
                   application/json: "{\"statusCode\": 200}"
                 type: mock
+<<<<<<< HEAD
+=======
+      StageName: LIVE
+>>>>>>> origin/step5
 
   geohash:
     Type: AWS::Serverless::Function
     Properties:
+<<<<<<< HEAD
       Handler: 
       Runtime: production
+=======
+      FunctionName:
+        Fn::Join:
+         - '-'
+         - - Ref: AWS::StackName
+           - geohash
+      Handler: handler.handler
+      CodeUri: ./src
+      Runtime: python3.7
+      MemorySize: 128
+      Timeout: 3
+      Role: !ImportValue lambdaRole
+      Events:
+        geohash:
+          Type: Api
+          Properties:
+            Path: /geohash
+            Method: get
+            RestApiId: !Ref API
+
+Outputs:
+  API:
+    Value: !Ref API.Stage
+>>>>>>> origin/step5
